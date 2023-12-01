@@ -30,13 +30,22 @@ public class DefectConsole extends Application {
     public void start(Stage primaryStage) {
     	
     	try {
-    		Parent root = FXMLLoader.load(getClass().getResource("Defect.fxml"));
-    		Scene scene = new Scene(root);
-    		primaryStage.setScene(scene);
-    		primaryStage.show();
-    	} catch(Exception e) {
-    		e.printStackTrace();
-    	}
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Defect.fxml"));
+            Parent root = loader.load();
+
+            // Set the controller for the FXML file
+            DefectController controller = loader.getController();
+            controller.setStage(primaryStage);
+            controller.setDefects(defects);
+
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Defect Console");
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     	
     	
     	
