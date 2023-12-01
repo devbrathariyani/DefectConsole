@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DefectConsole">
+    <Label text="Select the Project:"/>
+    <ComboBox fx:id="projectInput" prefWidth="150">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Development Project"/>
+                <String fx:value="Business Project"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    
+    <Label text="Defect Name:"/>
+    <TextField fx:id="defectNameInput" prefWidth="150"/>
+    
+    <Label text="Defect Description:"/>
+    <TextField fx:id="defectDescriptionInput" prefWidth="200"/>
+    
+    <Label text="Defect Category:"/>
+    <ComboBox fx:id="defectCategoryInput" prefWidth="150">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="High"/>
+                <String fx:value="Moderate"/>
+                <String fx:value="Low"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    
+    <Label text="Defect Actions:"/>
+    <HBox spacing="10">
+        <Button text="Add Defect" onAction="#addDefect"/>
+        <Button text="Remove Defect" onAction="#removeDefect"/>
+    </HBox>
+    
+    <TableView fx:id="defectTable">
+        <!-- Define your table columns here -->
+    </TableView>
+</VBox>
